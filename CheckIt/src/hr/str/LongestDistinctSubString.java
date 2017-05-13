@@ -6,32 +6,57 @@ import java.util.Set;
 public class LongestDistinctSubString {
 
   public static void main(String[] args) {
+    
+    Set<String> cases = new HashSet<>();
+    cases.add("abcadf");
+    cases.add("abcaa");
+    cases.add("ababcd");
+    cases.add("abcdef");
+    cases.add("baaab");
+    cases.add("abacbe");
+    cases.add("abacdeefgh");
+    
+      for (String s : cases) {
+        findMaxLenUniqueStr(s);
+      }    
+  }
+
+  private static void findMaxLenUniqueStr(String s) {
     int max = 0;
-    int count = 0;
-    String s = "abcadf";
-    
-    char p = '-';
+    int count;
     Set<Character> set = new HashSet<>();
-    char[] ca = s.toCharArray();
-    
-    for(int i =0 ;i < ca.length;i++){
+    char[] ca;
+
+    for (int i = 0; i < s.length(); i++) {
+      set.clear();
+      count = 0;
       
-    }
-    
-    for (char c : s.toCharArray()) {
-      if(set.contains(c)){
+      ca = s.substring(i, s.length()).toCharArray();
+      if (max >= ca.length) {
+        break;
+      }
+      for (int j = 0; j < ca.length; j++) {
+        char ch = ca[j];
+
+        if (set.contains(ch)) {
+          if (count > max) {
+            max = count;
+          }
+          
+          if (max >= ca.length - j) {
+            break;
+          }
+        } else {
+          count++;
+          set.add(ch);
+        }
         if(count > max){
           max = count;
         }
-        count = 0;        
-      }else{
-        count++;
-        p = c;
       }
-    }
-    
-    System.out.println(max);
 
+    }
+    System.out.println(s + " : " +max);
   }
 
 }
