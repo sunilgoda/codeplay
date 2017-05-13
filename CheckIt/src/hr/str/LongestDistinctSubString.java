@@ -15,6 +15,7 @@ public class LongestDistinctSubString {
     cases.add("baaab");
     cases.add("abacbe");
     cases.add("abacdeefgh");
+    cases.add("befede");
     
       for (String s : cases) {
         findMaxLenUniqueStr(s);
