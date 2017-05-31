@@ -4,6 +4,7 @@ import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**Checkout RunningMedianHeap.java*/
 public class RunningMedian {
 
 
